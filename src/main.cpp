@@ -594,5 +594,13 @@ void loop()
         delay(500);
     }
   }
+
+  // Handle Wifi disconnects
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("Reconnecting to WIFI network");
+    WiFi.disconnect();
+    WiFi.reconnect();
+    delay(3000);
+  }
  
 }
